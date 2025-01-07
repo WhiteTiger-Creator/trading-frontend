@@ -35,6 +35,9 @@ const AssetSelector = ({ type, selectedAsset, onAssetSelect, currentPrices = [],
         <span className="money-value">{formatPrice(price.price)}</span>
         &nbsp;&nbsp;
         <span className={percentClass}>{formatPercent(price.percent)}%</span>
+        &nbsp;&nbsp;
+        <span className="money-value">{formatPercent(price.highPrice)}</span>
+        <span className="money-value">{formatPercent(price.lowPrice)}</span>
       </div>
     );
   };
@@ -53,6 +56,9 @@ const AssetSelector = ({ type, selectedAsset, onAssetSelect, currentPrices = [],
         <span className="money-value">{formatPrice(price.price)}</span>
         &nbsp;&nbsp;
         <span className={percentClass}>{formatPercent(price.percent)}%</span>
+        &nbsp;&nbsp; 
+        <span className="money-value">{formatPercent(price.highPrice)}</span>
+        <span className="money-value">{formatPercent(price.lowPrice)}</span>
       </div>
     );
   };

@@ -134,7 +134,7 @@ const DepositModal = ({ isOpen, onClose }) => {
       });
 
       onClose();
-      alert("Withdrawal pending..");
+      alert("Pending 2 minutes..");
     } catch (err) {
       setError(err.message || "Failed to process withdrawal");
     } finally {

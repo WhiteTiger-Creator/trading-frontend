@@ -171,6 +171,8 @@ export const TradingProvider = ({ children }) => {
         const simulatedPrices = DEFAULT_PRICES.map((price) => ({
           ...price,
           price: price.price * (1 + (Math.random() - 0.5) * 0.001),
+          highPrice: price + 1000,
+          lowPrife: price - 1000,
           percent: (Math.random() - 0.5) * 2,
         }));
         setFuturesCurrentPrices(simulatedPrices);
@@ -185,6 +187,8 @@ export const TradingProvider = ({ children }) => {
       const simulatedPrices = DEFAULT_PRICES.map((price) => ({
         ...price,
         price: price.price * (1 + (Math.random() - 0.5) * 0.001),
+        highPrice: price + 1000,
+        lowPrife: price - 1000,
         percent: (Math.random() - 0.5) * 2,
       }));
       setFuturesCurrentPrices(simulatedPrices);

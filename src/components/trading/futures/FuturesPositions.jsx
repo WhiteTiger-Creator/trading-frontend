@@ -112,7 +112,7 @@ const FuturesPositions = () => {
   };
 
   const positionsTable = (value) => {
-    return value.reverse().map((pos) => ({
+    return value.map((_, index, arr) => arr[arr.length - 1 - index]).map((pos) => ({
       future: pos.positionType + " " + pos.assetType,
       realizedPL:
         value === futuresClosedPositions

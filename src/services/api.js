@@ -63,6 +63,9 @@ export const tradingAPI = {
       amount
     }),
 
+  withdrawHistory: () =>
+    api.get('/withdrawal/withdrawHistory'),
+
   deletePosition: (positionId) =>
     api.post('/position/deletePosition', positionId),
 

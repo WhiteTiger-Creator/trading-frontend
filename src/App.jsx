@@ -13,6 +13,7 @@ import TradingApp from "./components/trading/TradingApp";
 import FuturesTrading from "./components/trading/futures/FuturesTrading";
 import SpotTrading from "./components/trading/spot/SpotTrading";
 import HomePage from "./components/layout/HomePage";
+import ActivityDashboard from "./components/trading/dashboard/ActivityDashboard";
 
 // Let's update the ProtectedRoute to be more explicit
 
@@ -31,6 +32,7 @@ const App = () => {
               <Route path="spot" element={<SpotTrading />} />
               <Route path="login" element={<Login />} />
               <Route path="dashboard" element={<BalanceDashboard />} />
+              <Route path="activity" element={<ActivityDashboard />} />
             </Routes>
           </div>
         </TradingProvider>

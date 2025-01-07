@@ -38,9 +38,9 @@ const UserMenu = () => {
 
           <hr className="menu-separator" />
 
-          <a href="/#" className="menu-item">
+          <a href="/activity" className="menu-item">
             <img src="/img/activity.png" alt="Activity" />
-            <span>Activity</span>
+            <span>Withdraw History</span>
           </a>
 
           <a href="/#" className="menu-item">

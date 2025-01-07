@@ -14,6 +14,7 @@ import {
   tradingService,
   calculateROI,
 } from "../services/tradingService";
+import { toast } from "react-toastify";
 
 const DEFAULT_ASSETS = [
   "BTC",
@@ -590,7 +591,7 @@ export const TradingProvider = ({ children }) => {
       }
       await tradingService.saveTPSL(positionId, tp, sl);
       await updatePositions();
-      alert("TP/SL saved successfully");
+      toast.success("TP/SL saved successfully");
     } catch (err) {
       setError(err.message);
       throw err;

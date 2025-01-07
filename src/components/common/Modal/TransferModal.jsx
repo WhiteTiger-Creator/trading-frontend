@@ -2,6 +2,7 @@ import React, { useState, memo } from "react";
 import { useTrading } from "../../../contexts/TradingContext";
 import { walletAPI } from "../../../services/api";
 import "./styles.css";
+import { toast } from "react-toastify";
 
 const TransferModal = ({ isOpen, onClose }) => {
   const { balances, updateBalances } = useTrading();
@@ -14,7 +15,7 @@ const TransferModal = ({ isOpen, onClose }) => {
 
     const transferAmount = parseFloat(amount);
     if (isNaN(transferAmount) || transferAmount <= 0) {
-      alert("Please enter a valid amount");
+      toast.error("Please enter a valid amount");
       return;
     }
 
@@ -23,14 +24,14 @@ const TransferModal = ({ isOpen, onClose }) => {
       transferType === "fromFutures" &&
       transferAmount > balances.futuresUSDTBalance
     ) {
-      alert("Insufficient USDT in the Futures account");
+      toast.error("Insufficient USDT in the Futures account");
       return;
     }
     if (
       transferType === "fromSpot" &&
       transferAmount > balances.spotUSDTBalance
     ) {
-      alert("Insufficient USDT in the Spot account");
+      toast.error("Insufficient USDT in the Spot account");
       return;
     }
 
@@ -50,10 +51,10 @@ const TransferModal = ({ isOpen, onClose }) => {
       await walletAPI.updateBalance(newBalances);
 
       setAmount("");
-      alert("Transfer completed successfully!");
+      toast.success("Transfer completed successfully!");
       onClose();
     } catch (error) {
-      alert("Failed to complete transfer: " + error.message);
+      toast.error("Failed to complete transfer: " + error.message);
     } finally {
       setIsProcessing(false);
     }

@@ -2,6 +2,7 @@ import React, { useState, memo } from "react";
 import { useTrading } from "../../../hooks/useTrading";
 import { Box, Tab, Tabs } from "@mui/material";
 import { AvailableSpotUSDTBalance } from "../../common/Balances/Balances";
+import { toast } from "react-toastify";
 
 function a11yProps(index) {
   return {
@@ -113,7 +114,7 @@ const SpotOrderForm = ({ assetType, balances, currentPrice }) => {
         [type]: { ...prev[type], amount: "" },
       }));
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 

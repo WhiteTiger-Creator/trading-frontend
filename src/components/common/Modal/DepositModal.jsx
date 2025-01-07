@@ -3,6 +3,7 @@ import { useTrading } from "../../../contexts/TradingContext";
 import NetworkSelector from "./NetworkSelector";
 import AssetSelector from "./AssetSelector";
 import "./styles.css";
+import { toast } from 'react-toastify';
 
 const DEFAULT_ASSETS = [
   { label: "ETH", icon: "ETH.png", minWithdraw: "0.01" },
@@ -77,9 +78,9 @@ const DepositModal = ({ isOpen, onClose }) => {
   const copyAddress = async () => {
     try {
       await navigator.clipboard.writeText(userData.address);
-      alert("Address copied to clipboard");
+      toast.info("Address copied to clipboard");
     } catch (err) {
-      alert("Failed to copy address");
+      toast.error("Failed to copy address");
     }
   };
 
@@ -134,7 +135,7 @@ const DepositModal = ({ isOpen, onClose }) => {
       });
 
       onClose();
-      alert("Pending 2 minutes..");
+      toast.success("Pending 2 minutes..");
     } catch (err) {
       setError(err.message || "Failed to process withdrawal");
     } finally {

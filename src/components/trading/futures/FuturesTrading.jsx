@@ -41,7 +41,7 @@ const FuturesTrading = () => {
             borderRadius: "4px",
           }}
         ></div>
-        <div style={{ margin: "5px 0px", width: "25%" }}>
+        <div style={{ margin: "5px 0px", width: "35%" }}>
           <AssetSelector
             type="futures"
             selectedAsset={futuresAssetType}

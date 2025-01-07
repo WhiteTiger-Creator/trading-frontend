@@ -33,7 +33,7 @@ const SpotTrading = () => {
             borderRadius: "4px",
           }}
         ></div>
-        <div className="order-header" style={{ flexBasis: "25%" }}>
+        <div className="order-header" style={{ flexBasis: "35%" }}>
           <AssetSelector
             type="spot"
             selectedAsset={spotAssetType}

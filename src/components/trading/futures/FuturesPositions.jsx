@@ -8,6 +8,7 @@ import AdvancedView from "../../common/Chart/OrderView";
 import TPSLCell from "../../common/TSPCell";
 import PNICell from "../../common/PNICell";
 import { calculateROI } from "../../../services/tradingService";
+import { toast } from "react-toastify";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -280,7 +281,7 @@ const FuturesPositions = () => {
         setShowPartialCloseModal(true);
       }
     } catch (error) {
-      alert("Failed to close position: " + error.message);
+      toast.error("Failed to close position: " + error.message);
     }
   };
 
@@ -288,7 +289,7 @@ const FuturesPositions = () => {
     try {
       await saveTPSL(positionId, tp, sl);
     } catch (error) {
-      alert("Failed to save TP/SL: " + error.message);
+      toast.error("Failed to save TP/SL: " + error.message);
     }
   };
 

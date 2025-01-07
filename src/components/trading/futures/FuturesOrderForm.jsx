@@ -3,6 +3,7 @@ import { Tabs, Box, Tab, Slider, Button, Popover } from "@mui/material";
 import { useTrading } from "../../../hooks/useTrading";
 import { useTrading as useTradingContext } from "../../../contexts/TradingContext";
 import { AvailableUSDTBalance } from "../../common/Balances/Balances";
+import { toast } from "react-toastify";
 
 const followersMarks = [
   {
@@ -157,7 +158,7 @@ const FuturesOrderForm = ({ assetType, balance }) => {
         [type]: { ...prev[type], amount: "" },
       }));
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 

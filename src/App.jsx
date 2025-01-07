@@ -13,6 +13,7 @@ import TradingApp from "./components/trading/TradingApp";
 import FuturesTrading from "./components/trading/futures/FuturesTrading";
 import SpotTrading from "./components/trading/spot/SpotTrading";
 import HomePage from "./components/layout/HomePage";
+import { ToastContainer, Bounce } from 'react-toastify';
 
 // Let's update the ProtectedRoute to be more explicit
 
@@ -33,6 +34,19 @@ const App = () => {
               <Route path="dashboard" element={<BalanceDashboard />} />
             </Routes>
           </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          />
         </TradingProvider>
       </AuthProvider>
     </Router>

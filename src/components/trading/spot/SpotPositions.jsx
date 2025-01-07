@@ -4,6 +4,7 @@ import { Tabs, Box, Tab, Button } from "@mui/material";
 import AdvancedView from "../../common/Chart/OrderView";
 import { useAuth } from "../../../contexts/AuthContext";
 import { AssetBalances } from "../../common/Balances/Balances";
+import { toast } from "react-toastify";
 
 const formatPrice = (price) => parseFloat(price).toFixed(2);
 const formatNumber = (num) => parseFloat(num).toFixed(8);
@@ -142,7 +143,7 @@ const SpotPositions = () => {
     try {
       await closePosition(orderId, "spot");
     } catch (error) {
-      alert("Failed to cancel order: " + error.message);
+      toast.error("Failed to cancel order: " + error.message);
     }
   };
 

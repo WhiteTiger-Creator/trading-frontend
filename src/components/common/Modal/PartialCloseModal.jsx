@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './PartialCloseModal.css'; // We'll create this CSS file next
 import { useTrading } from '../../../contexts/TradingContext';
+import { toast } from 'react-toastify';
 
 const PartialCloseModal = ({ position, onClose }) => {
   const [percent, setPercent] = useState(100);
@@ -10,7 +11,7 @@ const PartialCloseModal = ({ position, onClose }) => {
   
   const handleSubmit = async () => {
     if (!percent || percent <= 0 || percent > 100) {
-      alert('Please enter a valid percentage between 1 and 100');
+      toast.warning('Please enter a valid percentage between 1 and 100');
       return;
     }
 
@@ -22,7 +23,7 @@ const PartialCloseModal = ({ position, onClose }) => {
         await closePosition(position.id, "futures");
       onClose();
     } catch (error) {
-      alert('Failed to partially close position: ' + error.message);
+      toast.error('Failed to partially close position: ' + error.message);
     } finally {
       setIsSubmitting(false);
     }
